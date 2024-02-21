@@ -12,9 +12,9 @@ function BookingDetails() {
 
 
     
-      <Search/>
+        <Search/> 
       
-      <SearchList/>
+       <SearchList/>  
 
      
       

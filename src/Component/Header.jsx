@@ -12,7 +12,7 @@ function Header() {
         <Link className='link' to="/">Home</Link>
       </li>
       <li>
-        <Link className='link' to="/about">About</Link>
+        <Link className='link' to="/about">Search Flight</Link>
       </li>
       <li>
         <Link className='link' to="/ticket">Booking</Link>

@@ -1,0 +1,225 @@
+.filters_pp2
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* background-color: aqua; */
+  padding: 10px;
+  border-style: solid;
+  border: block;
+  border-radius: 10px;
+  border-color:rgb(214, 182, 182);
+
+}
+
+/* .container
+{
+  margin-right: 10px;
+} */
+
+
+
+#buttonspaces
+{
+  margin-right: 0px;
+}
+
+
+
+
+
+
+
+.source
+{
+  /* background-color: blueviolet; */
+  width: fit-content;
+  margin-right: 10px;
+  margin-top: 7px;
+}
+
+#source
+{
+  padding: 2px;
+}
+
+
+.destination
+{
+  width: fit-content;
+  margin-right: 10px;
+  margin-top: 7px;
+}
+
+#destination
+{
+  padding: 2px;
+}
+
+.date
+{
+  width: fit-content;
+  
+}
+#toflex
+{
+  display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.filters_pp4
+{
+  /* background-color: rgb(183, 122, 189); */
+  padding: 10px;
+  width:fit-content;
+  margin-top: 10px;
+  border-style: solid;
+  border: block;
+  border-radius: 10px;
+  border-color:rgb(214, 182, 182);
+}
+
+
+#costspace
+{
+margin: 5px;
+}
+
+#flightnamesspace
+{
+  margin: 5px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+#stopsspace
+{
+  margin: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+#durationspace
+{
+  margin: 5px;
+  margin-top: 10px;
+}
+
+
+/* span
+{
+  margin: 2px;
+} */
+
+
+
+#costing
+{
+display: none;
+}
+#stoping
+{
+ margin-left: 5px;
+ font-size: 20px;
+
+}
+
+
+#hours
+{
+  display: none;
+}
+
+
+input
+{
+  margin-left: 10px;
+  
+}
+
+#duration
+{
+  margin-left: 10px;
+  margin-right: 10px;
+  
+}
+
+button
+{
+  border: block;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+#hours1
+{
+  /* margin-left: 5px;
+  margin-right: 15px; */
+  border: block;
+  border-radius: 4px;
+}
+
+#hours2
+{
+  border: block;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+#date
+{
+  padding: 2px;
+}
+
+
+#flexboxes
+{
+
+ 
+  display: flex;
+}
+
+
+.ll1_list
+  {
+   color: aliceblue;
+   margin-top: 10px;
+   margin-left: 10px;
+    height: 250px;
+    width: 750px;
+    justify-content: center;
+    overflow: hidden;
+    background-image: url( "https://tse3.mm.bing.net/th?id=OIP.idhoosqrcvzv8r7kNyqv0QHaEo&pid=Api&P=0&h=180" );
+    background-repeat: no-repeat;
+    background-size: 100%;
+    /* border: 2px solid #000;  */
+     /* Add border styling */
+    box-sizing: border-box;
+    border: block;
+  border-radius: 10px;
+  }
+
+
