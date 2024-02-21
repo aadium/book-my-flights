@@ -1,6 +1,7 @@
 import { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './checkin.css';
 
 function CheckIn() {
     let navigate = useNavigate();
@@ -63,8 +64,8 @@ function CheckIn() {
          <div className='fr'>
         <form className='frg' onSubmit={e=>onSubmit(e)}>
             <img src="" alt="" />
-            <label for="fristName" aria-hidden="true">First Name</label>
-            <label className='Lsatname'  for="LastName" aria-hidden="true"> Last Name</label>
+            <label id='togivespace'for="fristName" aria-hidden="true">First Name</label>
+            <label   id='secondspaces' className='Lsatname'  for="LastName" aria-hidden="true"> Last Name</label>
             <br />
             <input 
                 type="text" 
@@ -83,8 +84,8 @@ function CheckIn() {
                 onChange={e=>onChange(e)}/> 
                 
                 <br />
-                <label  for="phone" aria-hidden="true">Phone Number</label>
-                <label className='email' for="email" aria-hidden="true">Email Id</label>
+                <label  id='togivespace' for="phone" aria-hidden="true">Phone Number</label>
+                <label id='secondspace' className='email' for="email" aria-hidden="true">Email Id</label>
                 <br />
             <input
                  type="number" 
@@ -102,7 +103,7 @@ function CheckIn() {
                 placeholder='Email'onChange={e=>onChange(e)}
                 />
                 <br />
-                <label  for="age" aria-hidden="true">Your Date of Birth</label>
+                <label id='togivespace' for="age" aria-hidden="true">Your Date of Birth</label>
                 <label className='gender' for="gender" aria-hidden="true">Select your Gender</label>
                 <br />
             <input 
@@ -114,9 +115,9 @@ function CheckIn() {
                 onChange={e=>onChange(e)}/>   
 
         <input className='radio' type="radio" name="gender" value="Male" id="Male" required onChange={e=>onChange(e)}/>
-        <label for="Male" value="male">Male</label>
+        <label  id='male'for="Male" value="male">Male</label>
         <input type="radio" name="gender"  value="Female" id="Female" required onChange={e=>onChange(e)}/>
-        <label for="Female" value="Female">Female</label>
+        <label id='female'for="Female" value="Female">Female</label>
         <input type="radio" name="gender"  value="Other" id="Other" required onChange={e=>onChange(e)}/>
         <label for="Other" value="Other">Other</label>
         
@@ -124,7 +125,7 @@ function CheckIn() {
         <label for="address">Address</label><br />
         <textarea name="address" value={address} id="address" cols="30" rows="3" placeholder="Write your full address"></textarea>
             <br />
-            <label for="city">City</label>
+            <label id='togivespace' for="city">City</label>
             <label className='pin' for="pincode">Pincode</label><br />
             <input
                  type="text" 
@@ -142,7 +143,7 @@ function CheckIn() {
                 placeholder='Pincode'onChange={e=>onChange(e)}
                 />
             <br /> <br />
-            <button className='CheckIn' type='submit'>Cheack- in</button>
+            <button className='CheckIn' type='submit'>Check- in</button>
         </form>
         </div>
            

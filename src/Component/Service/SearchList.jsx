@@ -5,9 +5,7 @@ import axios from 'axios'
 function SearchList() {
 
     let Navigate = useNavigate();
-    const [Flight, setFlight]= useState(
-    []
-    );
+    const [Flight, setFlight]= useState([]);
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [buttonPopup, setPopup] = useState(false);

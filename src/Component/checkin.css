@@ -1,0 +1,142 @@
+
+body
+{
+    background-color: antiquewhite;
+}
+
+
+
+.CheckIn
+{
+    
+    display: flex;
+    
+    justify-content: center;
+   
+
+
+}
+
+
+#togivespace
+{
+    margin-left: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+button
+{
+   /* border-color: black;
+   border: solid;
+    border: 2px; */
+   margin: 10px;
+    
+}
+.hedu{
+    text-align: center;
+    border-style:solid;
+border-color:rgb(214, 182, 182);
+ border-radius: 10px;
+}
+
+
+.fr
+{
+    border-style:solid;
+    border-color:rgb(214, 182, 182);
+     border-radius: 10px;
+     /* border: 2px; */
+}
+
+label{
+    font-weight: bold;
+
+}
+
+.Lsatname
+{
+    margin-left: 10px;
+}
+
+.email
+{
+    margin-left: 120px;
+}
+
+.gender
+{
+    margin-left: 100px;
+}
+
+.pin
+{
+    margin-left: 178px;
+}
+
+#secondspaces
+{
+    margin-left: 125px;
+}
+#secondspace
+{
+    margin-left: 92px;
+}
+
+
+/* #names
+{
+    border: 10px;
+} */
+.last{
+    margin-bottom: 30px;
+}
+
+/* .radio{
+    margin: 15px;
+    
+} */
+
+#male
+{
+    margin-right: 10px;
+    
+}
+
+#female
+{
+    margin-right: 10px;
+}
+
+.gender
+{
+    margin-left: 35px;
+    
+}
+
+
+
+.Lsatname
+{
+    margin-left: 135px;
+}
+
+
+
+
+
+
+.email
+{
+    margin-left: 105px;
+}
