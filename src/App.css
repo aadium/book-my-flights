@@ -414,3 +414,81 @@ td {
 .cardNum {
   margin-left: 120px;
 }
+
+/*--------------------------sliderhome ------------------------*/
+.image-container {
+  margin-left: 140px;
+  width: 100%;
+  max-width: 1000px;  /* Set a maximum width if needed */
+  height: 400px;
+  overflow: hidden;
+  border: 2px solid #000;  /* Add border styling */
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center; 
+  align-items: center; /* Include border in the width and height calculations */
+}
+
+.custom-img-class {
+  width: 100%;
+  height: 100%;  /* Set the height to 100% to match the container's height */
+  object-fit: cover;  /* Maintain aspect ratio and cover the container */
+  display: block;  /* Remove any extra space below the image */
+}
+/*--------------------------Homefare------------------------------*/
+.Fare
+{
+  margin-top: 50px;
+  margin-bottom: 40px;
+  margin-left: 140px;
+  width: 100%;
+  max-width: 1000px;  /* Set a maximum width if needed */
+  height: 400px;
+  overflow: hidden;
+  background-image:url(https://brandfuge.com/wp-content/uploads/2019/03/Cheap-Flights-Online-2.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border: 2px solid #000;  /* Add border styling */
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center; 
+  align-items: center; 
+  color:black;
+}
+.Faree
+{
+  margin-top: 50px;
+  margin-bottom: 40px;
+  margin-left: 140px;
+  width: 100%;
+  max-width: 1000px;  /* Set a maximum width if needed */
+  height: 400px;
+  overflow: hidden;
+  background-image:url(https://static.india.com/wp-content/uploads/2020/04/flights1200.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border: 2px solid #000;  /* Add border styling */
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center; 
+  align-items: center; 
+  color:black;
+}
+.Farecol
+{
+  width: 100%;
+  height: 100%;  /* Set the height to 100% to match the container's height */
+  object-fit: cover;  /* Maintain aspect ratio and cover the container */
+  display: block;
+}
+.Fares
+{
+  margin-left: 30px;
+  width: 900%;
+  max-width: 900px;  /* Set a maximum width if needed */
+  height: 400px;
+  box-sizing: border-box;
+  justify-content: center;
+  text-align: center; 
+  align-items: center; 
+}
