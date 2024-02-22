@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .filters_pp2
 {
   margin-top: 10px;
@@ -210,6 +211,81 @@ button
    margin-left: 10px;
     height: 250px;
     width: 750px;
+=======
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 100%;
+  }
+  
+  .filters {
+    width: 30%; /* Adjust the width of the filters section */
+    padding-right: 20px;
+  }
+  
+  .search-results {
+    width: 70%; /* Adjust the width of the search results section */
+  }
+  
+  .label {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .range-input {
+    width: 100%;
+  }
+  
+  .checkbox-group {
+    margin-top: 10px;
+  }
+  
+  .flight-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .search_input1
+  {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-color: red;
+
+  }
+  .filters_pp4
+  {
+    width: 100%;
+    display: flex;
+  }
+  .filters_pp1
+  {
+    width: 50%;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    background-color: blueviolet;
+
+  }
+  
+  .ll1_list
+  {
+    width: 50%;
+>>>>>>> Stashed changes
     justify-content: center;
     overflow: hidden;
     background-image: url( "https://tse3.mm.bing.net/th?id=OIP.idhoosqrcvzv8r7kNyqv0QHaEo&pid=Api&P=0&h=180" );
@@ -218,8 +294,14 @@ button
     /* border: 2px solid #000;  */
      /* Add border styling */
     box-sizing: border-box;
+<<<<<<< Updated upstream
     border: block;
   border-radius: 10px;
   }
 
 
+=======
+  }
+  /* Add more styles as needed for other components */
+  
+>>>>>>> Stashed changes

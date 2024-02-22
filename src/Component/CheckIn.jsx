@@ -1,59 +1,42 @@
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './checkin.css';
 
 function CheckIn() {
-    let navigate = useNavigate();
+  let navigate = useNavigate();
 
-    const [Flight, setFlight]= useState(
-        []
-        );
-        const [error, setError] = useState(null);
-        const [isLoaded, setIsLoaded] = useState(false);
-    
-        useEffect(() => {
-            fetch("http://localhost:8080/Flight-Booking/getFlight")
-              .then(res => res.json())
-              .then(
-                (result) => {
-                  setIsLoaded(true);
-                  setFlight(result);
-                },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
-                (error) => {
-                  setIsLoaded(true);
-                  setError(error);
-                }
-              )
-          }, [])
-          const [Passenger, setPassenger]= useState({
-            firstName:null,
-            lastName: null,
-            phone:null,
-            email:null,
-            gender: null,
-            age:null,
-            address: null,
-            city: null,
-            pincode:null
-        });
-    
-    const {firstName,lastName, email,phone, gender,age,  address, city, pincode}=Passenger;
+  const [Passenger, setPassenger] = useState({
+    firstName: null,
+    lastName: null,
+    phone: null,
+    email: null,
+    gender: null,
+    age: null,
+    address: null,
+    city: null,
+    pincode: null
+  });
 
-    const onChange = e=>{
-		setPassenger({...Passenger,[e.target.name]: e.target.value});
-	};
-	const onSubmit= async e=>{
-		e.preventDefault();
-		await axios.post("http://localhost:8080/savePassenger",Passenger)
-        .then(
-            alert("SUBMIT"),
-            useNavigate.navagite("/payment", {})
-        )
-	};
+  const { firstName, lastName, email, phone, age, address, city, pincode } = Passenger;
+
+  const onChange = (e) => {
+    setPassenger({ ...Passenger, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    await axios
+      .post("http://localhost:8080/savePassenger", Passenger)
+      .then(() => {
+        alert("SUBMIT");
+        navigate("/payment", {});
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+      });
+  };
+
 
   return (
     
