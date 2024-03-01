@@ -16,6 +16,8 @@ function AddFlights() {
   const [seatsAvailable, setSeatsAvailable] = useState(0);
   const [layovers, setLayovers] = useState([]);
   const [layoverDurations, setLayoverDurations] = useState([]);
+  const [classes, setClasses] = useState([]);
+  const [prices, setPrices] = useState([]);
 
   const [airlinesText, setAirlinesText] = useState('');
   const [flightNumbersText, setFlightNumbersText] = useState('');
@@ -23,10 +25,14 @@ function AddFlights() {
   const [layoversText, setLayoversText] = useState('');
   const [layoverDurationsText, setLayoverDurationsText] = useState('');
   const [seatsAvailableText, setSeatsAvailableText] = useState('');
+  const [classesText, setClassesText] = useState('');
+  const [pricesText, setPricesText] = useState('');
 
   const handleChange = () => {
     const layoversArray = layoversText != '' ? layoversText.split(', ') : [];
     const layoverDurationsArray = layoverDurationsText != '' ? layoverDurationsText.split(', ') : [];
+    const classesArray = classesText != '' ? classesText.split(', ') : [];
+    const pricesArray = pricesText != '' ? pricesText.split(', ') : [];
 
     setAirlines(airlinesText.split(', '));
     setFlightNumbers(flightNumbersText.split(', '));
@@ -34,9 +40,11 @@ function AddFlights() {
     setLayovers(layoversArray);
     setLayoverDurations(layoverDurationsArray);
     setSeatsAvailable(parseInt(seatsAvailableText));
+    setClasses(classesArray);
+    setPrices(pricesArray);
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let data = {}
     if (layovers.length > 0 && layoverDurations.length > 0) {
@@ -50,7 +58,9 @@ function AddFlights() {
         arrivalTime,
         seatsAvailable,
         layovers,
-        layoverDurations
+        layoverDurations,
+        classes,
+        prices
       };
     } else {
       data = {
@@ -61,11 +71,19 @@ function AddFlights() {
         destination,
         departureTime,
         arrivalTime,
-        seatsAvailable
+        seatsAvailable,
+        classes,
+        prices
       };
     }
-    axios.post('https://bookmyflights-server.onrender.com/flights/saveFlight', data)
-      .then(res => {
+    await fetch('https://bookmyflights-server.onrender.com/flights/saveFlight', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      body: JSON.stringify(data),
+    }).then(res => {
         console.log(res);
       })
       .catch(err => {
@@ -133,6 +151,18 @@ function AddFlights() {
               <td>Seats Available</td>
               <td>
                 <input type="number" value={seatsAvailableText} onChange={(e) => setSeatsAvailableText(e.target.value)} />
+              </td>
+            </tr>
+            <tr>
+              <td>Classes</td>
+              <td>
+                <input type="text" placeholder='class1, class2' value={classesText} onChange={(e) => setClassesText(e.target.value)} />
+              </td>
+            </tr>
+            <tr>
+              <td>Prices</td>
+              <td>
+                <input type="text" placeholder='price1, price2' value={pricesText} onChange={(e) => setPricesText(e.target.value)} />
               </td>
             </tr>
             <tr>

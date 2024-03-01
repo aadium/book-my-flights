@@ -1,18 +1,10 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import About from './Component/About';
-import Home from './Component/Home';
-import Ticket from './Component/Ticket';
-import Service from './Component/Service';
-import Header from './Component/Header';
-import Register from './Component/Register';
-import SignUp from './Component/SignUp';
-import AddFlights from './Component/Service/AddFlights';
-import BookingDetails from './Component/BookingDetails';
-import FlightList from './Component/Service/FlightList';
-import Search from './Component/Service/Search';
-import SearchList from './Component/Service/SearchList';
-import CheckIn from './Component/CheckIn';
+import AddFlights from './Pages/AddFlights';
+import FlightList from './Pages/FlightList';
+import Header from './widgets/Header';
+import Home from './Pages/Home';
+import LoginForm from './Pages/Login';
 
 function App() {
   return (
@@ -21,20 +13,9 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/about/*' element={<About />} />
-          <Route path='/ticket/*' element={<Ticket />}>
-            <Route path='list' element={<FlightList />} />
-          </Route>
-          <Route path='/service/s1/s2/s3/*' element={<Service />}>
-            <Route path='addflight' element={<AddFlights />} />
-          </Route>
-          <Route path='/bookingdetails/*' element={<BookingDetails />}>
-            <Route path='search' element={<Search />} />
-            <Route path='SearchCon' element={<SearchList />} />
-          </Route>
-          <Route path='CheckIn' element={<CheckIn />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/signup' element={<SignUp />} />
+          <Route path="/flights/:source/:destination/:date" element={<FlightList />} />
+          <Route path='/addflight' element={<AddFlights />} />
+          <Route path='/login' element={<LoginForm />} />
         </Routes>
       </BrowserRouter>
     </div>
