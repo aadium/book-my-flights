@@ -53,15 +53,26 @@ function Header() {
                 </button>
               </li>
               {
-                isAdmin ? (
-                  <li className="nav-item">
-                    <button
-                      className={`nav-link`}
-                      onClick={() => navigate('/addFlight')}
-                    >
-                      Add a flight
-                    </button>
-                  </li>
+                isLoggedIn ? (
+                  isAdmin ? (
+                    <li className="nav-item">
+                      <button
+                        className={`nav-link`}
+                        onClick={() => navigate('/addFlight')}
+                      >
+                        Add a flight
+                      </button>
+                    </li>
+                  ) : (
+                    <li className="nav-item">
+                      <button
+                        className={`nav-link`}
+                        onClick={() => navigate('/bookings')}
+                      >
+                        View your bookings
+                      </button>
+                    </li>
+                  )
                 ) : null
               }
             </ul>

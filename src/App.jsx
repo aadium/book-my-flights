@@ -7,6 +7,7 @@ import Header from './widgets/Header';
 import Home from './Pages/Home';
 import LoginForm from './Pages/Login';
 import Register from './Pages/Register';
+import ViewBookings from './Pages/ViewBookings';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path="/flights/:source/:destination/:date" element={<FlightList />} />
           <Route path='/flights/book/:id' element={<BookFlight />} />
+          <Route path='/bookings' element={<ViewBookings />} />
           <Route path='/addflight' element={<AddFlights />} />
           <Route path='/login' element={<LoginForm />} />
           <Route path='/register' element={<Register />} />

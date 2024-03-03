@@ -56,13 +56,13 @@ function BookFlight() {
         return <div>Loading...</div>;
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (user.roles !== 'ROLE_USER') {
             alert('You must be logged in as a user to book a flight');
             return;
         }
-        const response = fetch('https://bookmyflights-server.onrender.com/tickets/saveTicket', {
+        const response = await fetch('https://bookmyflights-server.onrender.com/tickets/saveTicket', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -80,6 +80,17 @@ function BookFlight() {
             }),
         });
         if (response.ok) {
+            const decrementResponse = await fetch(`https://bookmyflights-server.onrender.com/flights/decrementSeats/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                },
+            });
+            if (!decrementResponse.ok) {
+                alert('An error occurred decrementing the flight seats');
+                return;
+            }
             alert('Flight booked successfully');
             navigate('/');
         } else {

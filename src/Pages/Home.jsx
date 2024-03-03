@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import FlightCard from '../widgets/FlightCard';
 
 export default function Home() {
   const [flights, setFlights] = useState([]);
@@ -80,22 +81,7 @@ export default function Home() {
             .sort((a, b) => Math.min(...a.prices) - Math.min(...b.prices))
             .slice(0, 6)
             .map((Flight) => (
-              <div key={Flight.id} className="col-md-4 mb-3">
-                <div className="card">
-                  <div className="card-body">
-                    <h5 className="card-title">{Flight.source} - {Flight.destination}</h5>
-                    <p className="card-text">
-                      Airlines: {Flight.airlines && Flight.airlines.join(', ')}<br />
-                      Flight Numbers: {Flight.flightNumbers && Flight.flightNumbers.join(', ')}<br />
-                      Departure Time: {Flight.departureTime}<br />
-                      Available Seats: {Flight.seatsAvailable}<br />
-                      Layovers: {Flight.layovers && Flight.layovers.join(', ')}<br />
-                      Layover Durations: {Flight.layoverDurations && Flight.layoverDurations.join(', ')}
-                    </p>
-                    <button style={{ width: '100%' }} onClick={() => handleNavigate(Flight.flightId)} className="btn btn-dark">Book</button>
-                  </div>
-                </div>
-              </div>
+              <FlightCard flight={Flight} />
             ))
         }
       </div>
