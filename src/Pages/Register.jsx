@@ -15,6 +15,10 @@ function Register() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        if (!username || !fullName || !email || !billingAddress || !password) {
+            alert('All fields must be filled out');
+            return;
+        }
         try {
             const response = await fetch('https://bookmyflights-server.onrender.com/auth/register', {
                 method: 'POST',
