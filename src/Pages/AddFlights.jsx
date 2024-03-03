@@ -1,7 +1,6 @@
-import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../App.css';
 
 function AddFlights() {
   let navigate = useNavigate();
@@ -84,53 +83,54 @@ function AddFlights() {
       },
       body: JSON.stringify(data),
     }).then(res => {
-        console.log(res);
-      })
+      console.log(res);
+      alert('Flight added successfully');
+    })
       .catch(err => {
         console.log(err);
       });
   }
 
   return (
-    <div className='addFlight'>
-      <h1 className='hOne'>ADD FLIGHTS</h1>
+    <div className='container'>
       <form onSubmit={handleSubmit}>
         <center>
-          <table className='addFlightFormTable'>
+          <table className='table'>
             <tr>
               <td>Airlines</td>
               <td>
-                <input type="text" placeholder='airline1, airline2' value={airlinesText} onChange={(e) => setAirlinesText(e.target.value)} />
+                <input type="text" className='form-control' placeholder='airline1, airline2' value={airlinesText} onChange={(e) => setAirlinesText(e.target.value)} />
               </td>
             </tr>
             <tr>
               <td>Flight Numbers</td>
               <td>
-                <input type="text" placeholder='fln1, fln2' value={flightNumbersText} onChange={(e) => setFlightNumbersText(e.target.value)} />
+                <input type="text" className='form-control' placeholder='fln1, fln2' value={flightNumbersText} onChange={(e) => setFlightNumbersText(e.target.value)} />
               </td>
             </tr>
             <tr>
               <td>Flight Durations</td>
               <td>
-                <input type="text" placeholder='hh:mm:ss, hh:mm:ss' value={flightDurationsText} onChange={(e) => setFlightDurationsText(e.target.value)} />
+                <input type="text" className='form-control' placeholder='hh:mm:ss, hh:mm:ss' value={flightDurationsText} onChange={(e) => setFlightDurationsText(e.target.value)} />
               </td>
             </tr>
             <tr>
-              <td>Departure Location</td>
+              <td>Departure City</td>
               <td>
-                <input type="text" value={source} onChange={(e) => setSource(e.target.value)} />
+                <input type="text" className='form-control' value={source} onChange={(e) => setSource(e.target.value)} />
               </td>
             </tr>
             <tr>
-              <td>Arrival Location</td>
+              <td>Arrival City</td>
               <td>
-                <input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} />
+                <input type="text" className='form-control' value={destination} onChange={(e) => setDestination(e.target.value)} />
               </td>
             </tr>
             <tr>
               <td>Departure Time</td>
               <td>
                 <input
+                  className='form-control'
                   type="datetime-local"
                   value={departureTime}
                   onChange={(e) => setDepartureTime(e.target.value.toString())}
@@ -141,6 +141,7 @@ function AddFlights() {
               <td>Arrival Time</td>
               <td>
                 <input
+                  className='form-control'
                   type="datetime-local"
                   value={arrivalTime}
                   onChange={(e) => setArrivalTime(e.target.value.toString())}
@@ -150,36 +151,37 @@ function AddFlights() {
             <tr>
               <td>Seats Available</td>
               <td>
-                <input type="number" value={seatsAvailableText} onChange={(e) => setSeatsAvailableText(e.target.value)} />
+                <input className='form-control' type="number" value={seatsAvailableText} onChange={(e) => setSeatsAvailableText(e.target.value)} />
               </td>
             </tr>
             <tr>
               <td>Classes</td>
               <td>
-                <input type="text" placeholder='class1, class2' value={classesText} onChange={(e) => setClassesText(e.target.value)} />
+                <input className='form-control' type="text" placeholder='class1, class2' value={classesText} onChange={(e) => setClassesText(e.target.value)} />
               </td>
             </tr>
             <tr>
               <td>Prices</td>
               <td>
-                <input type="text" placeholder='price1, price2' value={pricesText} onChange={(e) => setPricesText(e.target.value)} />
+                <input className='form-control' type="text" placeholder='price1, price2' value={pricesText} onChange={(e) => setPricesText(e.target.value)} />
               </td>
             </tr>
             <tr>
               <td>Layovers</td>
               <td>
-                <input type="text" placeholder='airport1, airport2' value={layoversText} onChange={(e) => setLayoversText(e.target.value)} />
+                <input className='form-control' type="text" placeholder='airport1, airport2' value={layoversText} onChange={(e) => setLayoversText(e.target.value)} />
               </td>
             </tr>
             <tr>
               <td>Layover Durations</td>
               <td>
-                <input type="text" placeholder='hh:mm:ss, hh:mm:ss' value={layoverDurationsText} onChange={(e) => setLayoverDurationsText(e.target.value)} />
+                <input className='form-control' type="text" placeholder='hh:mm:ss, hh:mm:ss' value={layoverDurationsText} onChange={(e) => setLayoverDurationsText(e.target.value)} />
               </td>
             </tr>
             <tr>
               <td colSpan='2'>
-                <button type="submit" className='button-30' onClick={handleChange}>Add Flight</button>
+                <br/>
+                <button type="submit" className='btn btn-primary' style={{ width: '100%' }} onClick={handleChange}>Add Flight</button>
               </td>
             </tr>
           </table>

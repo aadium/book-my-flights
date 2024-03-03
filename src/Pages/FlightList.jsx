@@ -8,7 +8,7 @@ function FlightList() {
   var { source, destination, date } = useParams();
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [Flight, setFlight] = useState([]);
+  const [flights, setFlight] = useState([]);
   const [departure, setDeparture] = useState(source);
   const [arrival, setArrival] = useState(destination);
   const [newDate, setNewDate] = useState(date);
@@ -22,8 +22,7 @@ function FlightList() {
       {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
+          'Content-Type': 'application/json'
         }
       }
     )
@@ -39,7 +38,23 @@ function FlightList() {
         }
       )
   }, [])
-  
+
+  const handleNavigate = async (id) => {
+    const response = await fetch('https://bookmyflights-server.onrender.com/auth/checkLogin', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      }
+    });
+
+    if (response.ok) {
+      navigate(`/flights/book/${id}`);
+    } else {
+      navigate('/login');
+    }
+  };
+
   return (
     <div className='list'>
       <div className="row">
@@ -59,8 +74,9 @@ function FlightList() {
         </div>
         <div className="col-md-9">
           <div className="column">
-            {Flight.map((Flight) => (
-              <div key={Flight.id} className="col-md-4">
+            {console.log(flights)}
+            {flights.map((Flight) => (
+              <div key={Flight.id} className="col-md-4 mb-3">
                 <div className="card">
                   <div className="card-body">
                     <h5 className="card-title">{Flight.source} - {Flight.destination}</h5>
@@ -72,6 +88,7 @@ function FlightList() {
                       Layovers: {Flight.layovers && Flight.layovers.join(', ')}<br />
                       Layover Durations: {Flight.layoverDurations && Flight.layoverDurations.join(', ')}
                     </p>
+                    <button style={{ width: '100%' }} onClick={() => handleNavigate(Flight.flightId)} className="btn btn-dark">Book</button>
                   </div>
                 </div>
               </div>
