@@ -19,7 +19,18 @@ function ViewBookingCard({ ticket }) {
         });
 
         if (response.ok) {
-            alert('Ticket deleted successfully');
+            const decrementResponse = await fetch(`https://bookmyflights-server.onrender.com/flights/incrementSeats/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                },
+            });
+            if (!decrementResponse.ok) {
+                alert('An error occurred incrementing the flight seats');
+                return;
+            }
+            alert('Flight deleted successfully');
             navigate('/');
         } else {
             alert('An error occurred deleting flight');
