@@ -6,8 +6,8 @@ function ViewBookingCard({ ticket }) {
     const navigate = useNavigate();
     const [flight, setFlight] = useState({});
 
-    const handleDelete = async (id) => {
-        if (!window.confirm('Are you sure you want to delete this flight?')) {
+    const handleDelete = async (id, flightId) => {
+        if (!window.confirm('Are you sure you want to delete this booking?')) {
             return;
         }
         const response = await fetch(`https://bookmyflights-server.onrender.com/tickets/deleteTicket/${id}`, {
@@ -19,21 +19,21 @@ function ViewBookingCard({ ticket }) {
         });
 
         if (response.ok) {
-            const decrementResponse = await fetch(`https://bookmyflights-server.onrender.com/flights/incrementSeats/${id}`, {
+            const incrementResponse = await fetch(`https://bookmyflights-server.onrender.com/flights/incrementSeats/${flightId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + localStorage.getItem('token'),
                 },
             });
-            if (!decrementResponse.ok) {
+            if (!incrementResponse.ok) {
                 alert('An error occurred incrementing the flight seats');
                 return;
             }
-            alert('Flight deleted successfully');
+            alert('Booking deleted successfully');
             navigate('/');
         } else {
-            alert('An error occurred deleting flight');
+            alert('An error occurred deleting the booking');
         }
     }
 
@@ -81,9 +81,9 @@ function ViewBookingCard({ ticket }) {
             <div className="card-body">
                 <h5 className="card-title">{flight.source} - {flight.destination}</h5>
                 <p className="card-text">
-                    Passenger Name: {ticket.fullName}<br/>
-                    Seat Number: {ticket.seatNumber}<br/>
-                    <hr/>
+                    Passenger Name: {ticket.fullName}<br />
+                    Seat Number: {ticket.seatNumber}<br />
+                    <hr />
                     Airlines: {flight.airlines && flight.airlines.join(', ')}<br />
                     Flight Numbers: {flight.flightNumbers && flight.flightNumbers.join(', ')}<br />
                     Departure: {new Date(flight.departureTime).toLocaleString()}<br />
@@ -91,7 +91,7 @@ function ViewBookingCard({ ticket }) {
                 </p>
                 <button
                     style={{ width: '100%' }}
-                    onClick={() => handleDelete(flight.flightId)}
+                    onClick={() => handleDelete(ticket.ticketId, flight.flightId)}
                     className="btn btn-danger"
                 >
                     Delete Booking
