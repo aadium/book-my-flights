@@ -181,7 +181,7 @@ function AddFlights() {
             <tr>
               <td colSpan='2'>
                 <br/>
-                <button type="submit" className='btn btn-primary' style={{ width: '100%' }} onClick={handleChange}>Add Flight</button>
+                <button type="submit" className='btn btn-dark' style={{ width: '100%' }} onClick={handleChange}>Add Flight</button>
               </td>
             </tr>
           </table>

@@ -41,14 +41,15 @@ function BookFlight() {
             if (flightsResponse.ok) {
                 const jsonResponse = await flightsResponse.json();
                 setFlight(jsonResponse);
+                setClassType(jsonResponse.classes[0]);
             } else {
                 const errorData = await flightsResponse.json();
                 alert(errorData.message);
             }
             setLoading(false);
         } catch (error) {
-            console.error('Error fetching user:', error);
-            alert('An error occurred fetching user');
+            console.error('Error fetching data:', error);
+            alert('An error occurred fetching data', error);
         }
     }
 
@@ -74,8 +75,9 @@ function BookFlight() {
                 fullName,
                 email,
                 billingAddress,
-                classType,
+                seatClass: classType,
                 seatNumber,
+                price: flight.prices[flight.classes.indexOf(classType)],
                 checkedInBagsAmount: numberOfBags,
             }),
         });
@@ -171,7 +173,19 @@ function BookFlight() {
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Number of Bags:</label>
-                    <input type="number" name="numberOfBags" value={numberOfBags} onChange={(e) => setNumberOfBags(e.target.value)} className="form-control" />
+                    <input 
+                        type="number" 
+                        name="numberOfBags" 
+                        value={numberOfBags} 
+                        onChange={(e) => {
+                            if (e.target.value >= 0 && e.target.value <= 2) {
+                                setNumberOfBags(e.target.value)
+                            }
+                        }} 
+                        className="form-control" 
+                        min="0" 
+                        max="2"
+                    />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Billing Address:</label>
