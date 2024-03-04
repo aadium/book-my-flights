@@ -12,9 +12,7 @@ A flight booking application that allows users to search for flights, book ticke
 - View available flights with details such as airline, departure time, and price.
 - Select and book flights for one or multiple passengers.
 - Manage bookings, including viewing, modifying, and canceling existing bookings.
-- Integration with payment gateways for secure online transactions.
 - User authentication and authorization for secure access to the application.
-- Responsive design for seamless usage on different devices.
 
 ## Installation
 
