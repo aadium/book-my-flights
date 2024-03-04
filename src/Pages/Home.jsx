@@ -51,9 +51,10 @@ export default function Home() {
 
   return (
     <div className="Home container" style={{
-      marginTop: '200px',
+      marginTop: '70px',
     }}>
-      <div className="row">
+      <h3 className="mt-5">Search Flights</h3>
+      <div className="row mt-5">
         <div className="col-md-3">
           <input type="text" className="form-control" placeholder='Departure City' value={departure} onChange={e => setDeparture(e.target.value)} />
         </div>

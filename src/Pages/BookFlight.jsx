@@ -173,7 +173,19 @@ function BookFlight() {
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Number of Bags:</label>
-                    <input type="number" name="numberOfBags" value={numberOfBags} onChange={(e) => setNumberOfBags(e.target.value)} className="form-control" />
+                    <input 
+                        type="number" 
+                        name="numberOfBags" 
+                        value={numberOfBags} 
+                        onChange={(e) => {
+                            if (e.target.value >= 0 && e.target.value <= 2) {
+                                setNumberOfBags(e.target.value)
+                            }
+                        }} 
+                        className="form-control" 
+                        min="0" 
+                        max="2"
+                    />
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Billing Address:</label>
